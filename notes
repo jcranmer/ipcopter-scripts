@@ -1,0 +1,6 @@
+In order to do a useful evaluation, we need to ensure that:
+a) tests can easily run agnostic to whether ipcd is installed
+b) the performance environments are basically identical
+c) we can extract data so we can, say, do a qq-plot and do normality
+
+I don't think I have time for analyzing excellence of benchmarks.

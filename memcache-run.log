@@ -1,0 +1,75 @@
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       133516     21 us    150 us     34 us     46 us     47 us     49 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        66484     22 us    134 us     34 us     43 us     44 us     45 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       134091     21 us    178 us     32 us     46 us     47 us     49 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        65909     23 us    139 us     32 us     44 us     45 us     46 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       133981     21 us    536 us     33 us     38 us     46 us     48 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        66019     25 us    136 us     34 us     42 us     43 us     45 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       133727     14 us    147 us     30 us     35 us     36 us     38 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        66273     16 us    110 us     30 us     34 us     35 us     38 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       134105     18 us   1064 us     33 us     45 us     47 us     48 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        65895     23 us    172 us     33 us     42 us     43 us     45 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       134234     18 us    135 us     31 us     36 us     39 us     48 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        65766     21 us    132 us     32 us     35 us     42 us     44 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       133942     16 us   1067 us     34 us     38 us     46 us     48 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        66058     20 us    145 us     34 us     41 us     43 us     45 us
+
+Average with 1 threads
+Get operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+       134231     21 us    153 us     33 us     36 us     37 us     48 us
+
+Set operations:
+     #of ops.       min       max       avg   max90th   max95th   max99th
+        65769     23 us    162 us     33 us     36 us     40 us     44 us
+
+
+
+gets: 1151995, sets: 577751, time: 60, ops/sec: 28829
