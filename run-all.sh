@@ -13,8 +13,8 @@ for file in *; do
   rm -f $file-run.log
 
   echo -e Setting up test "\e[1;31m$file\e[0m"
-  sudo $file/setup.sh |& tee $file-setup.log
+  sudo stdbuf -oL $file/setup.sh |& tee $file-setup.log
 
   echo -e Running test "\e[1;31m$file\e[0m"
-  $file/run.sh |& tee $file-run.log
+  stdbuf -oL $file/run.sh |& tee $file-run.log
 done
