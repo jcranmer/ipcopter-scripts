@@ -1,11 +1,13 @@
 #!/bin/bash
 
+ROOT=$(readlink -f $(dirname $0))
+
 case $CONFIG in
 ipcd)
-  ./install-ipcd.sh
+  $ROOT/install-ipcd.sh
   ;;
 baseline)
-  ./uninstall-ipcd.sh
+  $ROOT/uninstall-ipcd.sh
   ;;
 *)
   echo "Unrecognized configuration: CONFIG='$CONFIG'"
