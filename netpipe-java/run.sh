@@ -4,10 +4,12 @@ set -e
 
 ROOT=$(readlink -f $(dirname $0))
 
+MAX_CHUNK_SIZE=16777216
+
 pushd $ROOT/netpipe-Java-1.0 &> /dev/null
 
-java Netpipe TCP -r &
-java Netpipe TCP -t -h localhost -o np.out -P -u 16777216
+java Netpipe TCP -r -u $MAX_CHUNK_SIZE &
+java Netpipe TCP -t -h localhost -o np.out -P -u $MAX_CHUNK_SIZE
 
 echo "======================="
 echo "Parse-able Results:"
