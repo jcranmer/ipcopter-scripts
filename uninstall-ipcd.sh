@@ -4,7 +4,7 @@ set -e
 IPCOPTER_DIR=/home/cranmer2/ipcopter
 # Stop trying to use ipcd
 export IPCD_DISABLE=1
-initctl stop ipcd
+initctl status ipcd|grep start && initctl stop ipcd
 
 rm -rf /bin/ipcd
 rm -rf /lib/libipc.so
