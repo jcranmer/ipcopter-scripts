@@ -1,3 +1,3 @@
 #!/bin/bash
 
-service memcached restart
+sudo service memcached restart

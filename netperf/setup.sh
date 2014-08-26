@@ -1,4 +1,4 @@
 #!/bin/bash
 
 set -e
-service netperf restart
+sudo service netperf restart
