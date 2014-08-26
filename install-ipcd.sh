@@ -17,4 +17,5 @@ popd
 install $IPCOPTER_DIR/ipcd/ipcd /bin/ipcd
 install $IPCOPTER_DIR/libipc/libipc.so /lib/libipc.so
 #echo "/lib/libipc.so" > /etc/ld.so.preload
-initctl restart ipcd
+initctl stop ipcd || true
+initctl start ipcd || true
