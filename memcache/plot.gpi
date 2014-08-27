@@ -6,5 +6,11 @@ set datafile separator ','
 
 set grid
 
-# Hackily attempt to create line for every thread value 1-32
-plot for [i=1:32] "< grep '^".i.",' results/results.csv" using 2:6 with lines title columnheader(1)
+set xlabel "% Get Probability"
+set ylabel "Ops/Sec"
+set key title "Threads" horiz above
+
+threads="`tail -n+2 results/results.csv|awk -F ',' '{print $1, "\n"}'|sort -u`"
+
+plot for [i=1:words(threads)] "results/results.csv" using (($1 == word(threads, i))?$2:1/0):6 with lines title word(threads,i)
+
