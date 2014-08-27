@@ -43,10 +43,10 @@ popd &>/dev/null
 # Parse results into csv
 # TODO: Maybe make use of latency statistics? (How?)
 RESULTS_CSV=$RESULTS/results.csv
-echo '"Gets","Sets","Time","Ops/Sec"' > $RESULTS_CSV
+echo '"Threads","Prob","Gets","Sets","Time","Ops/Sec"' > $RESULTS_CSV
 for nthreads in $THREADS; do
   for prob in $PROBS; do
     LOG=$RESULTS/${nthreads}.${prob}.log
-    tail -n1 $LOG | sed 's/[^0-9]*://g'|awk '{$1=$1}1' OFS="," >> $RESULTS_CSV
+    tail -n1 $LOG | sed 's/[^0-9]*://g'|sed "s/^/$nthreads $prob/"|awk '{$1=$1}1' OFS="," >> $RESULTS_CSV
   done
 done
