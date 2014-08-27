@@ -1,0 +1,10 @@
+# Plot results
+
+set term wxt enhanced
+
+set datafile separator ','
+
+set grid
+
+# Hackily attempt to create line for every thread value 1-32
+plot for [i=1:32] "< grep '^".i.",' results/results.csv" using 2:6 with lines title columnheader(1)
