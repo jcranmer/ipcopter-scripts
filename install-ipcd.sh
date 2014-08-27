@@ -18,4 +18,6 @@ install $IPCOPTER_DIR/ipcd/ipcd /bin/ipcd
 install $IPCOPTER_DIR/libipc/libipc.so /lib/libipc.so
 #echo "/lib/libipc.so" > /etc/ld.so.preload
 initctl stop ipcd || true
-initctl start ipcd || true
+# Remove all existing ipc(d) logs
+find /tmp/ -maxdepth 1 -type f -name "ipcd.*.log" -exec rm -f {} \;
+intctl start ipcd || true
