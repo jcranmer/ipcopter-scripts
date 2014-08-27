@@ -4,15 +4,27 @@ set -e
 
 COUNT=200000
 ITERS=10000
-TIME=60
-THREADS="$(seq 1 32)"
-PROBS="0 10 20 25 33 50 67 75 80 90 100"
 
-if [ "$WORKLOAD" == "test" ]; then
+case $WORKLOAD in
+test)
   THREADS="8"
   TIME=10
   PROBS="50"
-fi
+  ;;
+basic)
+  THREADS="1 2 4 8"
+  TIME=30
+  PROBS="0 25 50 75 100"
+  ;;
+full)
+  THREADS="$(seq 1 32)"
+  TIME=60
+  PROBS="0 10 20 25 33 50 67 75 80 90 100"
+  ;;
+*)
+  echo "Unrecognized WORKLOAD '$WORKLOAD'"
+  exit 1
+esac
 
 RESULTS=$PWD/results
 rm -rf $RESULTS || true

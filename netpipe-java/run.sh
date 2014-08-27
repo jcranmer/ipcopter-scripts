@@ -4,11 +4,18 @@ set -e
 
 ROOT=$(readlink -f $(dirname $0))
 
-MAX_CHUNK_SIZE=16777216
-
-if [ $WORKLOAD == "test" ]; then
+case $WORKLOAD in
+test)
   MAX_CHUNK_SIZE=4
-fi
+  ;;
+full | basic)
+  #SIZES= (default)
+  MAX_CHUNK_SIZE=16777216
+  ;;
+*)
+  echo "Unrecognized WORKLOAD '$WORKLOAD'"
+  exit 1
+esac
 
 RESULTS=$PWD/results
 rm -rf $RESULTS || true

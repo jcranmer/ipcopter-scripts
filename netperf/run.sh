@@ -2,15 +2,32 @@
 
 set -e
 
-SIZES="$(python -c "print ' '.join(map(lambda x:str(2**x),range(21)))")"
 CONFID="95,5"
-ITERS="3,30"
-TIME=10
 
-if [ $WORKLOAD == "test" ]; then
+SIZES="$(python -c "print ' '.join(map(lambda x:str(2**x),range(21)))")"
+
+case $WORKLOAD in
+test)
   SIZES="4"
   ITERS="2,2"
   TIME=5
+  ;;
+basic)
+  #SIZES= (default)
+  ITERS="2,5"
+  TIME=5
+  ;;
+full)
+  #SIZES= (default)
+  ITERS="3,30"
+  TIME=10
+  ;;
+*)
+  echo "Unrecognized WORKLOAD '$WORKLOAD'"
+  exit 1
+esac
+
+if [ $WORKLOAD == "test" ]; then
 fi
 
 RESULTS=$PWD/results
