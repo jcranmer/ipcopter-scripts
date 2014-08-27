@@ -27,9 +27,6 @@ full)
   exit 1
 esac
 
-if [ $WORKLOAD == "test" ]; then
-fi
-
 RESULTS=$PWD/results
 rm -rf $RESULTS || /bin/true
 mkdir -p $RESULTS
