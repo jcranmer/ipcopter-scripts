@@ -1,0 +1,16 @@
+# Plot results
+
+set term png enhanced
+
+set datafile separator ','
+
+set logscale x 2
+set format x "2^{%L}"
+set xtics 1,4
+
+set grid
+
+set xlabel "Transmit Size (bytes)"
+set ylabel "Throughput MB/s"
+
+plot 'results/results.csv' using 3:5 with lines notitle
