@@ -27,6 +27,6 @@ java Netpipe TCP -r -u $MAX_CHUNK_SIZE &
 java Netpipe TCP -t -h localhost -o $RESULTS/np.out -P -u $MAX_CHUNK_SIZE
 
 echo '"Time","Throughput (bps)","Bits","Bytes","Variance"' > $RESULTS/results.csv
-awk '{$1=$1}1' OFS=',' < np.out >> $RESULTS/results.csv
+awk '{$1=$1}1' OFS=',' < $RESULTS/np.out >> $RESULTS/results.csv
 
 popd &> /dev/null
