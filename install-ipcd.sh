@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 IPCOPTER_DIR=/home/cranmer2/ipcopter
 
 # Build ipcd and make sure it's up-to-date first.

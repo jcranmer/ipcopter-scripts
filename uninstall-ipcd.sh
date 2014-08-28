@@ -1,6 +1,6 @@
 #!/bin/bash
 
-set -e
+set -ex
 IPCOPTER_DIR=/home/cranmer2/ipcopter
 # Stop trying to use ipcd
 export IPCD_DISABLE=1
