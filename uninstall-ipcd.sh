@@ -9,7 +9,8 @@ initctl stop ipcd || true
 
 rm -rf /bin/ipcd
 rm -rf /lib/libipc.so
-#rm -rf /etc/ld.so.preload
+# Ensure this has been removed!
+rm -rf /etc/ld.so.preload
 
 # If it's still running, kill it
-#killall -9 ipcd
+killall -9 ipcd || true
