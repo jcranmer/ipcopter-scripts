@@ -4,6 +4,7 @@ ROOT=$(readlink -f $(dirname $0))
 
 case $CONFIG in
 ipcd)
+  sudo $ROOT/uninstall-ipcd.sh
   sudo $ROOT/install-ipcd.sh
   ;;
 baseline)
