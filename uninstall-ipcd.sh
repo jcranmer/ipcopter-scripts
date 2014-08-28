@@ -7,10 +7,11 @@ export IPCD_DISABLE=1
 
 initctl stop ipcd || true
 
+# Ensure this is removed, regardless of what initctl thinks
+rm -rf /etc/ld.so.preload 2>/dev/null
+
 rm -rf /bin/ipcd
 rm -rf /lib/libipc.so
-# Ensure this has been removed!
-rm -rf /etc/ld.so.preload
 
 # If it's still running, kill it
 killall -9 ipcd || true
