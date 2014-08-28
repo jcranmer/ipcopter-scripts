@@ -1,6 +1,6 @@
 # Plot results
 
-set term png enhanced
+set term png enhanced size 800,1024
 
 set datafile separator ','
 
@@ -15,6 +15,11 @@ set style fill solid 0.5 border
 
 threads="`tail -n+2 memcache.baseline.csv|awk -F ',' '{print $1, "\n"}'|sort -u`"
 
-plot for [i=1:words(threads)] "memcache.baseline.csv" using (($1 == word(threads, i))?$2:1/0):6 with lines title word(threads,i), \
-     for [i=1:words(threads)] "memcache.ipcd.csv" using (($1 == word(threads, i))?$2:1/0):6 with lines title word(threads,i)
+set multiplot layout words(threads),1
 
+do for [i=1:words(threads)] {
+plot "memcache.baseline.csv" using (($1 == word(threads, i))?$2:1/0):6 with linespoints title "Baseline - " . word(threads,i) . " Threads", \
+     "memcache.ipcd.csv" using (($1 == word(threads, i))?$2:1/0):6 with linespoints title "IPCD - " . word(threads,i) . " Threads"
+}
+
+unset multiplot
