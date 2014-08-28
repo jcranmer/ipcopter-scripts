@@ -1,0 +1,20 @@
+# Plot results
+
+set term png enhanced
+
+set datafile separator ','
+
+set grid
+
+set xlabel "% Get Probability"
+set ylabel "IPCD Relative Ops/Sec (%)"
+
+
+set boxwidth 0.9
+set style fill solid 0.5 border
+
+threads="`tail -n+2 memcache.baseline.csv|awk -F ',' '{print $1, "\n"}'|sort -u`"
+
+plot for [i=1:words(threads)] "memcache.baseline.csv" using (($1 == word(threads, i))?$2:1/0):6 with lines title word(threads,i), \
+     for [i=1:words(threads)] "memcache.ipcd.csv" using (($1 == word(threads, i))?$2:1/0):6 with lines title word(threads,i)
+
