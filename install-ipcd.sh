@@ -20,4 +20,4 @@ install $IPCOPTER_DIR/libipc/libipc.so /lib/libipc.so
 initctl stop ipcd || true
 # Remove all existing ipc(d) logs
 find /tmp/ -maxdepth 1 -type f -name "ipcd.*.log" -exec rm -f {} \;
-intctl start ipcd || true
+initctl start ipcd || true
