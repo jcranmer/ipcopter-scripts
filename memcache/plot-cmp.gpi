@@ -7,7 +7,7 @@ set datafile separator ','
 set grid
 
 set xlabel "% Get Probability"
-set ylabel "IPCD Relative Ops/Sec (%)"
+set ylabel "Ops/Sec"
 
 
 set boxwidth 0.9
