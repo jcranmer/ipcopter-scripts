@@ -7,7 +7,7 @@ ROOT=$(readlink -f $(dirname $0))
 
 ZMQ_DIR=~cranmer2/zeromq-4.0.4
 
-RESULTS=$ROOT/results
+RESULTS=$PWD/results
 rm -rf $RESULTS || true
 mkdir -p $RESULTS
 
