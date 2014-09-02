@@ -1,0 +1,8 @@
+set term png enhanced
+
+set datafile separator ','
+
+set grid
+
+plot 'zeromq.baseline.csv' using 1:4 with lines title "Baseline", \
+     'zeromq.ipcd.csv' using 1:4 with lines title "IPCD"
