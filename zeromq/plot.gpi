@@ -4,4 +4,9 @@ set datafile separator ','
 
 set grid
 
-plot 'results/results.csv' using 1:4 with lines
+set logscale xy
+
+set xlabel "Message Size (B)"
+set ylabel "Mean Throughput (MB/s)"
+
+plot 'results/results.csv' using 1:4 with linespoints

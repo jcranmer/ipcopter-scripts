@@ -4,5 +4,10 @@ set datafile separator ','
 
 set grid
 
-plot 'zeromq.baseline.csv' using 1:4 with lines title "Baseline", \
-     'zeromq.ipcd.csv' using 1:4 with lines title "IPCD"
+set logscale xy
+
+set xlabel "Message Size (B)"
+set ylabel "Mean Throughput (MB/s)"
+
+plot 'zeromq.baseline.csv' using 1:4 with linespoints title "Baseline", \
+     'zeromq.ipcd.csv' using 1:4 with linespoints title "IPCD"
