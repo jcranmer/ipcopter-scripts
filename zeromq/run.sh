@@ -13,13 +13,25 @@ mkdir -p $RESULTS
 
 pushd $ZMQ_DIR/perf &> /dev/null
 
-COUNT=100000
+case $WORKLOAD in
+test)
+  COUNT=100000
+  ITERS=5
+  ;;
+full | basic)
+  COUNT=1000000
+  ITERS=10
+  ;;
+*)
+  echo "Unrecognized WORKLOAD '$WORKLOAD'"
+  exit 1
+esac
 
 RESULTS_CSV=$RESULTS/results.csv
 
 echo "'Message Size','Message Count','Mean Throughput (msg/s)','Mean Throughput (Mb/s)'" > $RESULTS_CSV
 
-for i in `seq 1 5`; do
+for i in `seq 1 $ITERS`; do
   let 'SIZE=10**i'
 
   LOG=$RESULTS/${SIZE}.log
