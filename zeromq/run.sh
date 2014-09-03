@@ -20,7 +20,7 @@ test)
   ;;
 full | basic)
   COUNT=1000000
-  ITERS=10
+  ITERS=8
   ;;
 *)
   echo "Unrecognized WORKLOAD '$WORKLOAD'"
@@ -33,7 +33,7 @@ echo "'Message Size','Message Count','Mean Throughput (msg/s)','Mean Throughput 
 
 for i in `seq 1 $ITERS`; do
   let 'SIZE=10**i'
-  let 'COUNT=10**(12-i)'
+  let 'COUNT=10**(10-i)'
 
   LOG=$RESULTS/${SIZE}.log
 
