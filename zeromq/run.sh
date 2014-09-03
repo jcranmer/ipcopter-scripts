@@ -25,7 +25,7 @@ for i in `seq 1 5`; do
   LOG=$RESULTS/${SIZE}.log
 
   # run throughput test
-  ./local_thr tcp://lo:5555 $SIZE $COUNT |& tee $LOG &
+  ./local_thr tcp://lo:5555 $SIZE $COUNT >& $LOG &
   ./remote_thr tcp://localhost:5555 $SIZE $COUNT
   wait
 
