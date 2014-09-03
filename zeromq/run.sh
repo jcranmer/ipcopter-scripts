@@ -36,7 +36,6 @@ for i in `seq 0 $ITERS`; do
   ./local_thr tcp://lo:5555 $SIZE $COUNT >& $LOG &
   ./remote_thr tcp://localhost:5555 $SIZE $COUNT
   wait
-  sleep 1
 
   # Append results to csv...
   VALS=$(cat $LOG|sed -e 's/^.*://' -e 's/\[.*\]//')
