@@ -7,17 +7,17 @@ ITERS=10000
 
 case $WORKLOAD in
 test)
-  THREADS="8"
+  THREADS="4"
   TIME=10
   PROBS="50"
   ;;
 basic)
-  THREADS="1 2 4 8"
+  THREADS="1 2 4"
   TIME=30
   PROBS="0 25 50 75 100"
   ;;
 full)
-  THREADS="$(seq 1 32)"
+  THREADS="$(seq 1 $(nproc))"
   TIME=60
   PROBS="0 10 20 25 33 50 67 75 80 90 100"
   ;;
