@@ -40,7 +40,7 @@ for CPU_PATH in /sys/devices/system/cpu/cpu[0-9]*; do
     CPU="$(echo $CPU_PATH | tr -cd "0-9")"
     echo "$CPUS_TO_SKIP" | grep " $CPU " > /dev/null
     if [ $? -ne 0 ]; then
-        echo "Taking CPU $CPU offline...\n"
+        echo "Taking CPU $CPU offline..."
         echo 0 | sudo tee $CPU_PATH/online
     fi
 done
