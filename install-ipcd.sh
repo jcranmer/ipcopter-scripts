@@ -16,10 +16,17 @@ popd
 
 install $IPCOPTER_DIR/ipcd/ipcd /bin/ipcd
 install $IPCOPTER_DIR/libipc/libipc.so /lib/libipc.so
-#echo "/lib/libipc.so" > /etc/ld.so.preload
-initctl stop ipcd || true
+
+
+# initctl stop ipcd || true
 # Remove all existing ipc(d) logs
 find /tmp/ -maxdepth 1 -type f -name "ipcd.*.log" -exec rm -f {} \;
 # Remove any existing shared memory segments as well
 find /dev/shm -maxdepth 1 -name "ipcd.*" -exec rm -f {} \;
-initctl start ipcd || true
+# initctl start ipcd || true
+
+echo "/lib/libipc.so" > /etc/ld.so.preload
+
+/bin/true
+
+ps aux|grep ipcd
