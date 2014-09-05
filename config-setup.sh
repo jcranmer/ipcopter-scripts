@@ -13,7 +13,7 @@ sudo $ROOT/uninstall-ipcd.sh
 # that might be active.
 
 # Benchmark-related services
-SERVICES="apache2 mailman postgresql netperf memcached jenkins"
+SERVICES="apache2 mailman postgresql netperf memcached"
 # Misc system services that can only introduce noise
 SERVICES="$SERVICES lightdm bluetooth cups cups-browsed postfix saned"
 
