@@ -13,12 +13,12 @@ test)
   TIME=5
   ;;
 basic)
-  #SIZES= (default)
+  SIZES="$(python -c "print ' '.join(map(lambda x:str(8**x),range(7)))")"
   ITERS="2,5"
-  TIME=5
+  TIME=10
   ;;
 full)
-  #SIZES= (default)
+  SIZES="$(python -c "print ' '.join(map(lambda x:str(2**x),range(21)))")"
   ITERS="3,30"
   TIME=10
   ;;
