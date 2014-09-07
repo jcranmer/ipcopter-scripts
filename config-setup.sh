@@ -21,6 +21,11 @@ for S in $SERVICES; do
   sudo service $S stop || true
 done
 
+# Disable apparmor as much as possible.
+# Commands taken from https://help.ubuntu.com/community/AppArmor
+sudo invoke-rc.d apparmor kill
+sudo update-rc.d -f apparmor remove
+
 ################################################################################
 # Ensure CPU scaling/etc is in order
 
