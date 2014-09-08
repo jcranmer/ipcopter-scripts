@@ -21,6 +21,8 @@ install $IPCOPTER_DIR/libipc/libipc.so /lib/libipc.so
 # initctl stop ipcd || true
 # Remove all existing ipc(d) logs
 find /tmp/ipcd -maxdepth 1 -type f -name "*.log" -exec rm -f {} \;
+# Remove logs from old format as well
+find /tmp/ -maxdepth 1 -type f -name "ipcd.*.log" -exec rm -f {} \;
 # Remove any existing shared memory segments as well
 find /dev/shm -maxdepth 1 -name "ipcd.*" -exec rm -f {} \;
 # initctl start ipcd || true
