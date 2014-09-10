@@ -30,7 +30,7 @@ mkdir -p $RESULTS
 # Create results csv
 RESULTS_CSV=$RESULTS/results.csv
 
-echo '"TPS (incl)", "TPS (excl)"' > $RESULTS_CSV
+echo '"Scale Factor","TPS (incl)", "TPS (excl)"' > $RESULTS_CSV
 
 export PGUSER=postgres
 export PGHOST=localhost
