@@ -32,6 +32,9 @@ RESULTS_CSV=$RESULTS/results.csv
 
 echo '"TPS (incl)", "TPS (excl)"' > $RESULTS_CSV
 
+export PGUSER=postgres
+export PGHOST=localhost
+
 # Run pgbench
 for scale in $SCALES; do
   LOG=$RESULTS/s${scale}.log
