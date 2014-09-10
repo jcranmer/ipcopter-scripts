@@ -51,3 +51,6 @@ for scale in $SCALES; do
   grep tps $LOG | sed 's/^tps = \([0-9.]*\).*$/\1/' | tr '\n' ', ' |sed 's/,$/\n/' | \
     sed 's/^/$scale,/' >> $RESULTS_CSV
 done
+
+# Attempt to cleanly exit the server, if we get this far...
+sudo postgresql stop
