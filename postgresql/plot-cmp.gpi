@@ -1,0 +1,17 @@
+# Plot results
+
+set term png enhanced
+
+set datafile separator ','
+
+set grid
+
+set xlabel "IPCD Relative TPS"
+set ylabel "Scale Factor"
+
+set boxwidth 0.9
+set style fill solid 0.5 border
+
+# No idea if this will come close to working,
+# will revise once actually have data to test with
+plot '< paste -d, postgresql.baseline.csv postgresql.ipcd.csv' using 1:(100*(($5/$2) - 1)):($5 > $2? 0x00FF00 : 0xFF0000) with boxes notitle lc rgb variable
