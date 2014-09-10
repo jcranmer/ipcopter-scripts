@@ -6,8 +6,8 @@ set datafile separator ','
 
 set grid
 
-set xlabel "IPCD Relative TPS"
-set ylabel "Scale Factor"
+set xlabel "Scale Factor"
+set ylabel "IPCD Relative TPS"
 
 set boxwidth 0.9
 set style fill solid 0.5 border

@@ -6,7 +6,7 @@ set datafile separator ','
 
 set grid
 
-set xlabel "TPS"
-set ylabel "Scale Factor"
+set xlabel "Scale Factor"
+set ylabel "TPS"
 
 plot 'results/results.csv' using 2: xtic(1) with histogram
