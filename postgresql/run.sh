@@ -53,4 +53,4 @@ for scale in $SCALES; do
 done
 
 # Attempt to cleanly exit the server, if we get this far...
-sudo postgresql stop
+sudo service postgresql stop
