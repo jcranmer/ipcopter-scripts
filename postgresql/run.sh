@@ -9,9 +9,9 @@ test)
   TIME=10
   ;;
 basic)
-  # 1m
+  # 2m
   SCALES="1 21 41 61"
-  TIME=60
+  TIME=120
   ;;
 full)
   SCALES="1 21 41 61"
