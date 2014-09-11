@@ -75,7 +75,7 @@ for scale in $SCALES; do
 
   # Do a throwaway warm-up iteration
   LOG=$RESULTS/s${scale}.warmup.log
-  >: $LOG
+  :> $LOG
   cleanup_db
   pgbench -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
   
