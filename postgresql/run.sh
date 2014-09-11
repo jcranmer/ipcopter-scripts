@@ -19,7 +19,8 @@ test)
   ITERS=1
   ;;
 basic)
-  SCALES="1 21 41 61"
+  #SCALES="1 21 41 61"
+  SCALES="1"
   # 1m
   TIME=60
   ITERS=3
@@ -72,7 +73,7 @@ for scale in $SCALES; do
     fi
 
 
-    pgbench -s $scale -S -T $TIME -r -h localhost pgbench |& tee -a $LOG
+    pgbench -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
 
 
     # TODO: Select-only?
