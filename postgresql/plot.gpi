@@ -12,4 +12,5 @@ set ylabel "TPS"
 set boxwidth 0.9
 set style fill solid 0.5 border
 
-plot '<tail -n+2 results/results.csv' using 2: xtic(1) with histogram notitle
+# TODO: Make use of the other data points!
+plot '<tail -n+2 results/results.csv' using 3: xtic(1) with histogram notitle
