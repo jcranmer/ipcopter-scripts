@@ -19,11 +19,10 @@ test)
   ITERS=1
   ;;
 basic)
-  #SCALES="1 21 41 61"
-  SCALES="1"
+  SCALES="1 21 41 61"
   # 1m
   TIME=60
-  ITERS=3
+  ITERS=2
   ;;
 full)
   SCALES="1 21 41 61"
@@ -48,6 +47,23 @@ echo '"Scale Factor","Iteration","TPS (incl)", "TPS (excl)"' > $RESULTS_CSV
 export PGUSER=postgres
 export PGHOST=localhost
 
+function cleanup_db {
+  if [ "$WORKLOAD" != "test" ]; then
+    echo Cleaning up database $DB |& tee -a $LOG
+    # From: http://www.westnet.com/~gsmith/content/postgresql/pgbench.htm
+    DB=pgbench
+    psql -c 'truncate table history' $DB |& tee -a $LOG
+    psql -c 'vacuum' $DB |& tee -a $LOG
+    psql -c 'vacuum full' $DB |& tee -a $LOG
+    psql -c 'vacuum analyze' $DB |& tee -a $LOG
+    psql -c 'checkpoint' $DB |& tee -a $LOG
+    # For good luck ;)
+    sync
+    sync
+    sync
+  fi
+}
+
 # Run pgbench
 for scale in $SCALES; do
   # Clear the database if it exists.
@@ -56,25 +72,22 @@ for scale in $SCALES; do
 
   # create test db once for each scale size
   pgbench -i -s $scale -h localhost pgbench
-  # do multiple iterations with same db (??)
+
+  # Do a throwaway warm-up iteration
+  LOG=$RESULTS/s${scale}.warmup.log
+  >: $LOG
+  cleanup_db
+  pgbench -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
+  
+
   for iter in $(seq $ITERS); do
     LOG=$RESULTS/s${scale}.i${iter}.log
 
     :> $LOG
 
-    if [ "$WORKLOAD" != "test" ]; then
-      psql -c "vacuum analyze" |& tee -a $LOG
-      psql -c "checkpoint" |& tee -a $LOG
-      # Not sure how to properly wait for checkpoint, so, uh, let's sleep a bit
-      sync
-      sync
-      sync
-      sleep 10
-    fi
-
+    cleanup_db
 
     pgbench -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
-
 
     # TODO: Select-only?
     # TODO: Latency numbers?
