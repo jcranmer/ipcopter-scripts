@@ -20,15 +20,15 @@ test)
   ;;
 basic)
   SCALES="1 21 41 61"
-  # 10m, let's see what this gets us...
+  # 10m...
   TIME=600
-  ITERS=3
+  ITERS=7
   ;;
 full)
   SCALES="1 21 41 61"
   # 10m
   TIME=600
-  ITERS=5
+  ITERS=11
   ;;
 *)
   echo "Unrecognized WORKLOAD '$WORKLOAD'"
