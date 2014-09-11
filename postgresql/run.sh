@@ -22,7 +22,7 @@ basic)
   SCALES="1 21 41 61"
   # 10m, let's see what this gets us...
   TIME=600
-  ITERS=2
+  ITERS=3
   ;;
 full)
   SCALES="1 21 41 61"
@@ -61,7 +61,7 @@ function cleanup_db {
     sync
     sync
     sync
-    sleep 5
+    sleep 10
   fi
 }
 
@@ -75,11 +75,11 @@ for scale in $SCALES; do
   pgbench -i -s $scale -h localhost pgbench
 
   # Do a throwaway warm-up iteration
-  # LOG=$RESULTS/s${scale}.warmup.log
-  # :> $LOG
-  # cleanup_db
-  # pgbench -n -N -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
-  
+  LOG=$RESULTS/s${scale}.warmup.log
+  :> $LOG
+  cleanup_db
+  pgbench -n -N -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
+
 
   for iter in $(seq $ITERS); do
     LOG=$RESULTS/s${scale}.i${iter}.log
