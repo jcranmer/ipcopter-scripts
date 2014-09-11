@@ -20,14 +20,14 @@ test)
   ;;
 basic)
   SCALES="1 21 41 61"
-  # 1m
-  TIME=60
+  # 10m, let's see what this gets us...
+  TIME=600
   ITERS=2
   ;;
 full)
   SCALES="1 21 41 61"
-  # 1m
-  TIME=60
+  # 10m
+  TIME=600
   ITERS=5
   ;;
 *)
@@ -52,7 +52,7 @@ function cleanup_db {
     echo Cleaning up database $DB |& tee -a $LOG
     # From: http://www.westnet.com/~gsmith/content/postgresql/pgbench.htm
     DB=pgbench
-    psql -c 'truncate table history' $DB |& tee -a $LOG
+    # psql -c 'truncate table history' $DB |& tee -a $LOG
     psql -c 'vacuum' $DB |& tee -a $LOG
     psql -c 'vacuum full' $DB |& tee -a $LOG
     psql -c 'vacuum analyze' $DB |& tee -a $LOG
@@ -61,6 +61,7 @@ function cleanup_db {
     sync
     sync
     sync
+    sleep 5
   fi
 }
 
@@ -74,10 +75,10 @@ for scale in $SCALES; do
   pgbench -i -s $scale -h localhost pgbench
 
   # Do a throwaway warm-up iteration
-  LOG=$RESULTS/s${scale}.warmup.log
-  :> $LOG
-  cleanup_db
-  pgbench -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
+  # LOG=$RESULTS/s${scale}.warmup.log
+  # :> $LOG
+  # cleanup_db
+  # pgbench -n -N -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
   
 
   for iter in $(seq $ITERS); do
@@ -87,7 +88,7 @@ for scale in $SCALES; do
 
     cleanup_db
 
-    pgbench -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
+    pgbench -n -N -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
 
     # TODO: Select-only?
     # TODO: Latency numbers?
