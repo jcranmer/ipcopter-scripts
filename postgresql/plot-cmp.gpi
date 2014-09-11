@@ -9,9 +9,14 @@ set grid
 set xlabel "Scale Factor"
 set ylabel "IPCD Relative TPS"
 
-set boxwidth 0.9
+#set boxwidth auto
 set style fill solid 0.5 border
+set style data histogram
+set style histogram cluster gap 1
+set boxwidth 15
+
+set xtics 1,20
 
 # No idea if this will come close to working,
 # will revise once actually have data to test with
-plot '< paste -d, postgresql.baseline.csv postgresql.ipcd.csv' using 1:(100*(($5/$2) - 1)):($5 > $2? 0x00FF00 : 0xFF0000) with boxes notitle lc rgb variable
+plot '< paste -d, postgresql.baseline.csv postgresql.ipcd.csv | tail -n+2' using 1:(100*(($5/$2) - 1)):($5 > $2? 0x00FF00 : 0xFF0000) with boxes notitle lc rgb variable

@@ -9,4 +9,7 @@ set grid
 set xlabel "Scale Factor"
 set ylabel "TPS"
 
-plot 'results/results.csv' using 2: xtic(1) with histogram
+set boxwidth 0.9
+set style fill solid 0.5 border
+
+plot '<tail -n+2 results/results.csv' using 2: xtic(1) with histogram notitle

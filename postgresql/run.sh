@@ -10,11 +10,11 @@ test)
   ;;
 basic)
   # 1m
-  SCALES="1 31 61"
+  SCALES="1 21 41 61"
   TIME=60
   ;;
 full)
-  SCALES="1 11 21 31 41 51 61 71"
+  SCALES="1 21 41 61"
   # 10m
   TIME=600
   ;;
