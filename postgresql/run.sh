@@ -19,16 +19,18 @@ test)
   ITERS=1
   ;;
 basic)
-  SCALES="1 21 41 61"
+  # Temporary experiment to see what this gets us
+  SCALES="40 60 80"
   # 10m...
   TIME=600
   ITERS=7
   ;;
 full)
-  SCALES="1 21 41 61"
+  # About 1 day per configuration (!)
+  SCALES="1 20 40 60 80 100"
   # 10m
   TIME=600
-  ITERS=11
+  ITERS=20
   ;;
 *)
   echo "Unrecognized WORKLOAD '$WORKLOAD'"
