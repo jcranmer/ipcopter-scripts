@@ -19,11 +19,11 @@ test)
   ITERS=1
   ;;
 basic)
-  # Temporary experiment to see what this gets us
-  SCALES="40 60 80"
-  # 10m...
+  # About 1 day per configuration (!)
+  SCALES="1 20 40 60 80 100"
+  # 10m
   TIME=600
-  ITERS=7
+  ITERS=30
   ;;
 full)
   # About 1 day per configuration (!)
