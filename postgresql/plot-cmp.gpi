@@ -14,7 +14,7 @@ set style data boxplot
 set boxwidth 0.4
 set style fill solid 0.5 border
 
-factors="`tail -n+2 postgresql.baseline.csv|awk -F ',' '{print $1, "\n"}'|sort -u`"
+factors="`tail -n+2 postgresql.baseline.csv|awk -F ',' '{print $1, "\n"}'|sort -un`"
 n_f = words(factors)
 
 set xtic ("" 1)
