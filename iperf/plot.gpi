@@ -1,0 +1,28 @@
+# Plot results
+
+set term png enhanced
+
+set datafile separator ','
+
+set grid
+
+set xlabel "Buffer Size (B)"
+set ylabel "Throughput (KB/s)"
+
+set style boxplot outliers
+set style data boxplot
+set boxwidth 0.4
+set style fill solid 0.5 border
+
+set logscale y
+
+factors="`tail -n+2 results/results.csv|awk -F ',' '{print $2, "\n"}'|sort -u`"
+n_f = words(factors)
+
+set xtic ("" 1)
+set for [i=1:n_f] xtics add (word(factors,i) i)
+
+t(x) = x/8
+filter(col, factor_col, level) = (strcol(factor_col) eq word(factors, level)) ? t(column(col)) : 1/0
+
+plot for [i=1:n_f] 'results/results.csv' using (i):(filter(3, 2, i)) lc rgb 'blue' notitle
