@@ -4,9 +4,9 @@ set -e
 
 case $WORKLOAD in
 test)
-  SIZES="4"
-  ITERS="2"
-  TIME=5
+  SIZES="4 64"
+  ITERS="5"
+  TIME=3
   ;;
 basic)
   SIZES="$(python -c "print ' '.join(map(lambda x:str(8**x),range(7)))")"
@@ -33,7 +33,7 @@ IPERF_SERVER=$!
 for size in $SIZES; do
   for iter in $(seq $ITERS); do
     LOG=$RESULTS/${size}.${iter}.log
-    stdbuf -oL -eL iperf -c localhost -fK -l ${size}B -t $TIME |& tee $LOG
+    stdbuf -oL -eL iperf -c localhost -fk -l ${size}B -t $TIME |& tee $LOG
   done
 done
 
@@ -43,11 +43,11 @@ kill $!
 # build result csv
 RESULT_CSV=$RESULTS/results.csv
 
-echo '"Iteration","Buffer Size","Throughput KB/s"' > $RESULT_CSV
+echo '"Iteration","Buffer Size","Throughput Kb/s"' > $RESULT_CSV
 
 for size in $SIZES; do
   for iter in $(seq $ITERS); do
     LOG=$RESULTS/${size}.${iter}.log
-    sed -n 's@.* \([0-9\.]*\) KBytes/sec.*$@\1@p' $LOG|sed "s/^/$iter $size /"|awk '{$1=$1}1' OFS=',' >> $RESULT_CSV
+    sed -n 's@.* \([0-9\.]*\) Kbits/sec.*$@\1@p' $LOG|sed "s/^/$iter $size /"|awk '{$1=$1}1' OFS=',' >> $RESULT_CSV
   done
 done
