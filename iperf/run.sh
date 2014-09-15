@@ -33,7 +33,7 @@ IPERF_SERVER=$!
 for size in $SIZES; do
   for iter in $(seq $ITERS); do
     LOG=$RESULTS/${size}.${iter}.log
-    stdbuf -oL -eL iperf -c localhost -fK -l $size -t $TIME |& tee $LOG
+    stdbuf -oL -eL iperf -c localhost -fK -l ${size}B -t $TIME |& tee $LOG
   done
 done
 
