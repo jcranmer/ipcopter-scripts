@@ -16,7 +16,7 @@ set style fill solid 0.5 border
 
 set logscale y
 
-factors="`tail -n+2 iperf.baseline.csv|awk -F ',' '{print $2, "\n"}'|sort -u`"
+factors="`tail -n+2 iperf.baseline.csv|awk -F ',' '{print $2, "\n"}'|sort -un`"
 n_f = words(factors)
 
 set xtic ("" 1)
