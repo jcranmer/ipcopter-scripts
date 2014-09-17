@@ -23,9 +23,15 @@ mkdir -p $RESULTS
 
 pushd $ROOT/NetPIPE-3.7.1 &> /dev/null
 
-./NPtcp -l 1 -u $MAX_CHUNK_SIZE &
+PORT=1
+while [ $PORT -lt 1024 ]; do
+  PORT=$RANDOM
+done
+echo $PORT
+
+./NPtcp -l 1 -u $MAX_CHUNK_SIZE -P$PORT &
 sleep 1
-./NPtcp -h localhost -o $RESULTS/np.out -l 1 -u $MAX_CHUNK_SIZE
+./NPtcp -h localhost -o $RESULTS/np.out -l 1 -u $MAX_CHUNK_SIZE -P$PORT
 
 # Shame that java version has better information?
 echo '"Bytes","Throughput (Mbps)","Time (s)"' > $RESULTS/results.csv
