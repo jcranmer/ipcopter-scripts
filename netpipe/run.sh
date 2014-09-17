@@ -32,7 +32,7 @@ for i in $(seq $ITERS); do
   while [ $PORT -lt 1024 ]; do
     PORT=$RANDOM
   done
-  echo $PORT
+  echo "Using port=$PORT"
   OUT=$RESULTS/np.${i}.out
 
   ./NPtcp -l 1 -u $MAX_CHUNK_SIZE -P$PORT -p$i &
