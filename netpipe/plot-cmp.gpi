@@ -6,7 +6,7 @@ set datafile separator ','
 
 set logscale x 2
 set format x "2^{%L}"
-set xtics 1,2
+set xtics 1,4
 
 set xrange [1:2**24]
 
