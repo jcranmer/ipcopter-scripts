@@ -24,11 +24,8 @@ mkdir -p $RESULTS
 pushd $ROOT/NetPIPE-3.7.1 &> /dev/null
 
 ./NPtcp -l 1 -u $MAX_CHUNK_SIZE &
-SERVER=$!
 sleep 1
 ./NPtcp -h localhost -o $RESULTS/np.out -l 1 -u $MAX_CHUNK_SIZE
-
-kill $SERVER
 
 # Shame that java version has better information?
 echo '"Bytes","Throughput (Mbps)","Time (s)"' > $RESULTS/results.csv
