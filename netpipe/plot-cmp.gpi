@@ -15,4 +15,4 @@ set grid
 set xlabel "Transmit Size (bytes)"
 set ylabel "IPCD Relative Throughput (%)"
 
-plot '< paste -d, netpipe.baseline.csv netpipe.ipcd.csv' using 1:(100*(($5/$2) - 1)):($5 > $2? 0x00FF00 : 0xFF0000) with points notitle lc rgb variable pt 3
+plot '< paste -d, netpipe.baseline.csv netpipe.ipcd.csv' using 3:(100*(($9/$4) - 1)):($9 > $4? 0x00FF00 : 0xFF0000) with points notitle lc rgb variable pt 3
