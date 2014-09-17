@@ -1,0 +1,25 @@
+From cacdc139991849dc5c3e360b32cae78da38d25c6 Mon Sep 17 00:00:00 2001
+From: Will Dietz <w@wdtz.org>
+Date: Wed, 17 Sep 2014 02:18:38 -0500
+Subject: [PATCH] Fix duplicate specifier for 'P' flag in call to getopt()
+
+---
+ src/netpipe.c | 2 +-
+ 1 file changed, 1 insertion(+), 1 deletion(-)
+
+diff --git a/src/netpipe.c b/src/netpipe.c
+index 0f08f33..e94198b 100644
+--- a/src/netpipe.c
++++ b/src/netpipe.c
+@@ -97,7 +97,7 @@ int main(int argc, char **argv)
+ #if ! defined(TCGMSG)
+ 
+     /* Parse the arguments. See Usage for description */
+-    while ((c = getopt(argc, argv, "AXSO:rIiPszgfaB2h:p:o:l:u:b:m:n:t:c:d:D:P:")) != -1)
++    while ((c = getopt(argc, argv, "AXSO:rIiszgfaB2h:p:o:l:u:b:m:n:t:c:d:D:P:")) != -1)
+     {
+         switch(c)
+         {
+-- 
+2.1.0
+
