@@ -12,7 +12,7 @@ test)
 full | basic)
   #SIZES= (default)
   MAX_CHUNK_SIZE=16777216
-  ITERS=3
+  ITERS=5
   ;;
 *)
   echo "Unrecognized WORKLOAD '$WORKLOAD'"
