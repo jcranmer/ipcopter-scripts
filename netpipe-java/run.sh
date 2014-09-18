@@ -39,5 +39,6 @@ for i in $(seq $ITERS); do
   java Netpipe TCP -t -h localhost -o $OUT -P -u $MAX_CHUNK_SIZE -p $PORT
 
   awk '{$1=$1}1' OFS=',' < $OUT | sed "s/^/$i,/" >> $RESULTS/results.csv
+done
 
 popd &> /dev/null
