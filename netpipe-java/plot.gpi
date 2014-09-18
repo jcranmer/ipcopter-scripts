@@ -13,4 +13,4 @@ set xrange [1:2**24]
 
 set grid
 
-plot 'results/results.csv' using 4:2 with lines title columnhead
+plot 'results/results.csv' using 5:3 with lines title columnhead
