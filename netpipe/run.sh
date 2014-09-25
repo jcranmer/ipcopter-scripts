@@ -35,9 +35,9 @@ for i in $(seq $ITERS); do
   echo "Using port=$PORT"
   OUT=$RESULTS/np.${i}.out
 
-  ./NPtcp -l 1 -u $MAX_CHUNK_SIZE -P$PORT -p$i &
+  ./NPtcp -l 1 -u $MAX_CHUNK_SIZE -P$PORT -p3 &
   sleep 1
-  ./NPtcp -h localhost -o $OUT -l 1 -u $MAX_CHUNK_SIZE -P$PORT -p$i
+  ./NPtcp -h localhost -o $OUT -l 1 -u $MAX_CHUNK_SIZE -P$PORT -p3
 
   awk '{$1=$1}1' OFS=',' < $OUT | sed "s/^/$i,$i,/" >> $RESULTS/results.csv
 done
