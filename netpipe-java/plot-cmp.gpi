@@ -5,14 +5,24 @@ set term png enhanced
 set datafile separator ','
 
 set logscale x 2
-set format x "2^{%L}"
-set xtics 1,4
+set format x "%.0b%BB"
+set xtics 1,16
+#set xtics autofreq
+
+set grid noxtics ytics
 
 set xrange [1:2**24]
 
-set grid
+set xlabel "Send buffer size"
+set ylabel "Slipstream relative throughput (%)"
 
-set xlabel "Transmit Size (bytes)"
-set ylabel "IPCD Relative Throughput (%)"
+set style line 1 linecolor rgb "#e41a1c"
+set style line 2 linecolor rgb "#377eb8"
+set style line 3 linecolor rgb "#4daf4a"
+set style line 4 linecolor rgb "#984ea3"
 
-plot '< paste -d, netpipe-java.baseline.csv netpipe-java.ipcd.csv' using 5:(100*(($9/$3) - 1)):($9 > $3? 0x00FF00 : 0xFF0000) with points notitle lc rgb variable pt 3
+# Aggregate values for each pertubation value
+! paste -d, netpipe.ipcd.csv netpipe.baseline.csv | sort -k4,4 -t, -n > temp.csv
+! awk -F ',' 'BEGIN { bytes = 0; ipcd = 0; baseline =0; n = 1 } { if ($4 != bytes) { printf("%d,%f,%f\n",bytes, ipcd/n, baseline/n); ipcd = 0; baseline=0;n=0 } bytes = $4; ipcd += $3; baseline += $8; n+= 1} END {  printf("%d,%f,%f\n",bytes, ipcd/n, baseline/n); }' temp.csv > temp2.csv
+
+plot 'temp2.csv' using ($1):($2/$3 * 100) with lines notitle
