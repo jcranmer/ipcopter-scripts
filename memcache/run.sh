@@ -17,9 +17,9 @@ basic)
   PROBS="0 25 50 75 100"
   ;;
 full)
-  THREADS="$(seq 1 $(nproc)0)"
+  THREADS="$(seq 1 16)"
   TIME=60
-  PROBS="0 10 20 25 33 50 67 75 80 90 100"
+  PROBS="20 50 80"
   ;;
 *)
   echo "Unrecognized WORKLOAD '$WORKLOAD'"
