@@ -19,11 +19,10 @@ test)
   ITERS=1
   ;;
 basic)
-  # About 1 day per configuration (!)
-  SCALES="1 20 40 60 80 100"
-  # 10m
-  TIME=600
-  ITERS=30
+  SCALES="1 20 40"
+  # 2m
+  TIME=120
+  ITERS=3
   ;;
 full)
   # About 1 day per configuration (!)
@@ -31,6 +30,11 @@ full)
   # 10m
   TIME=600
   ITERS=20
+  ;;
+debug)
+  SCALES="20"
+  TIME=60
+  ITERS=2
   ;;
 *)
   echo "Unrecognized WORKLOAD '$WORKLOAD'"
@@ -74,13 +78,13 @@ for scale in $SCALES; do
   createdb pgbench
 
   # create test db once for each scale size
-  pgbench -i -s $scale -h localhost pgbench
+  pgbench -i -s $scale -h 127.0.0.1 pgbench
 
   # Do a throwaway warm-up iteration
   LOG=$RESULTS/s${scale}.warmup.log
   :> $LOG
   cleanup_db
-  pgbench -n -N -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
+  pgbench -n -N -S -j 4 -c 8 -s $scale -T $TIME -r -h 127.0.0.1 pgbench |& tee -a $LOG
 
 
   for iter in $(seq $ITERS); do
@@ -90,7 +94,7 @@ for scale in $SCALES; do
 
     cleanup_db
 
-    pgbench -n -N -s $scale -T $TIME -r -h localhost pgbench |& tee -a $LOG
+    pgbench -n -N -S -j 4 -c 8 -s $scale -T $TIME -r -h 127.0.0.1 pgbench |& tee -a $LOG
 
     # TODO: Select-only?
     # TODO: Latency numbers?
