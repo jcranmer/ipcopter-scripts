@@ -5,22 +5,24 @@ set term png enhanced
 set datafile separator ','
 
 set logscale x 2
-set format x "2^{%L}"
+set format x "%.0b%BB"
 set xtics 1,4
 
-set xrange [1:2**21]
+set xrange [1:2**20]
+set yrange [0:3]
 
 set grid
 
-set xlabel "Transmit Size (bytes)"
-set ylabel "IPCD Relative Throughput (%)"
-
-# Basic relative plot, nopers
-#plot 'netperf.baseline.csv' using 3:5 with lines title "Baseline", \
-#     'netperf.ipcd.csv' using 3:5 with lines title "IPCD"
-
+set xlabel "Transmit size"
+set ylabel "Slipstream throughput ratio"
 
 set boxwidth 0.9
 set style fill solid 0.5 border
 
-plot '< paste -d, netperf.baseline.csv netperf.ipcd.csv' using 3:(100*(($10/$5) - 1)):($10 > $5? 0x00FF00 : 0xFF0000) with boxes notitle lc rgb variable
+set style line 1 linecolor rgb "#fc8d62"
+set style line 2 linecolor rgb "#377eb8"
+set style line 3 linecolor rgb "#4daf4a"
+set style line 4 linecolor rgb "#984ea3"
+
+plot '< paste -d, netperf.baseline.csv netperf.ipcd.csv' \
+  u 3:($10/$5) w lines ls 2 notitle
