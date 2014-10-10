@@ -19,7 +19,7 @@ test)
   ITERS=1
   ;;
 basic)
-  SCALES="20 200"
+  SCALES="100 200 400 800 1600"
   # 2m
   TIME=120
   ITERS=3
@@ -84,7 +84,7 @@ for scale in $SCALES; do
   LOG=$RESULTS/s${scale}.warmup.log
   :> $LOG
   cleanup_db
-  pgbench -n -N -S -j 4 -c 8 -s $scale -T $TIME -r -h 127.0.0.1 pgbench |& tee -a $LOG
+  pgbench -n -N -S -c 8 -s $scale -T $TIME -h 127.0.0.1 pgbench |& tee -a $LOG
 
 
   for iter in $(seq $ITERS); do
@@ -94,7 +94,7 @@ for scale in $SCALES; do
 
     cleanup_db
 
-    pgbench -n -N -S -j 4 -c 8 -s $scale -T $TIME -r -h 127.0.0.1 pgbench |& tee -a $LOG
+    pgbench -n -N -S -c 8 -s $scale -T $TIME -h 127.0.0.1 pgbench |& tee -a $LOG
 
     # TODO: Select-only?
     # TODO: Latency numbers?
