@@ -19,7 +19,7 @@ test)
   ITERS=1
   ;;
 basic)
-  SCALES="1 50 100 150 200 250 300"
+  SCALES="1 50 100 150 200"
   # 2m
   TIME=120
   ITERS=3
