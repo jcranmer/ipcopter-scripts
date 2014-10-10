@@ -9,20 +9,27 @@ set grid
 set xlabel "Scale Factor"
 set ylabel "TPS"
 
-set style boxplot outliers
-set style data boxplot
+set style data histogram
 set boxwidth 0.4
 set style fill solid 0.5 border
 
 factors="`tail -n+2 postgresql.baseline.csv|awk -F ',' '{print $1, "\n"}'|sort -un`"
 n_f = words(factors)
 
-set xtic ("" 1)
-set for [i=1:n_f] xtics add (word(factors,i) i)
+set yrange [0:110]
+set xtics 0,20
+#set for [i=1:n_f] xtics add (word(factors,i) i)
 
 filter(col, factor_col, level) = (strcol(factor_col) eq word(factors, level)) ? column(col) : 1/0
 
-plot for [i=1:n_f] 'postgresql.baseline.csv' using (i - 0.21):(filter(3, 1, i)) lc rgb 'red' notitle, \
-  for [i=1:n_f] 'postgresql.ipcd.csv' using (i + 0.21):(filter(3, 1, i)) lc rgb 'blue' notitle, \
-    1/0 with boxplot lc rgb 'red' title 'Baseline', \
-    1/0 with boxplot lc rgb 'blue' title 'IPCD'
+set linetype 1 linecolor rgb "#e41a1c"
+set linetype 2 linecolor rgb "#377eb8"
+set linetype 3 linecolor rgb "#4daf4a"
+set linetype 4 linecolor rgb "#984ea3"
+
+plot 'postgresql.ipcd.csv' using 1:3 smooth unique \
+       w linespoints ls 1 pt 8 title "Slipstream", \
+     'postgresql.baseline.csv' using 1:3 smooth unique \
+       w linespoints ls 2 pt 4 title "Baseline"
+#    1/0 with boxplot lc rgb 'red' title 'Baseline', \
+#    1/0 with boxplot lc rgb 'blue' title 'IPCD'
