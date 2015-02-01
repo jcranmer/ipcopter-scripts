@@ -28,8 +28,8 @@ full)
   # About 1 day per configuration (!)
   SCALES="1 20 40 60 80 100"
   # 10m
-  TIME=600
-  ITERS=20
+  TIME=300
+  ITERS=10
   ;;
 debug)
   SCALES="20"
