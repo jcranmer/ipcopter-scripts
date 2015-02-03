@@ -1,6 +1,6 @@
 # Plot results
 
-set term png enhanced # size 800,1024
+set term pdf size 4in,3in #png enhanced # size 800,1024
 
 set datafile separator ','
 
@@ -19,10 +19,10 @@ nprobs=words(probs)
 
 #set key outside above
 
-set linetype 1 linecolor rgb "#e41a1c"
-set linetype 2 linecolor rgb "#377eb8"
-set linetype 3 linecolor rgb "#4daf4a"
-set linetype 4 linecolor rgb "#984ea3"
+set linetype 1 linecolor rgb "#e41a1c" lw 2
+set linetype 2 linecolor rgb "#377eb8" lw 2
+set linetype 3 linecolor rgb "#4daf4a" lw 2
+set linetype 4 linecolor rgb "#984ea3" lw 2
 
 plot \
     "memcache.ipcd.csv" every nprobs::2 using 1:6 with linespoints \
