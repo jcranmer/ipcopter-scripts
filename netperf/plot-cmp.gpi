@@ -1,6 +1,6 @@
 # Plot results
 
-set term png enhanced
+set term png enhanced crop
 
 set datafile separator ','
 
@@ -14,15 +14,21 @@ set yrange [0:3]
 set grid
 
 set xlabel "Transmit size"
-set ylabel "Slipstream throughput ratio"
+set ylabel "Throughput ratio"
 
 set boxwidth 0.9
 set style fill solid 0.5 border
 
-set style line 1 linecolor rgb "#fc8d62"
+set style line 1 linecolor rgb "#e41a1c"
 set style line 2 linecolor rgb "#377eb8"
 set style line 3 linecolor rgb "#4daf4a"
 set style line 4 linecolor rgb "#984ea3"
 
 plot '< paste -d, netperf.baseline.csv netperf.ipcd.csv' \
-  u 3:($10/$5) w lines ls 2 notitle
+  u 3:($10/$5) w lines ls 2 title "Slipstream", \
+  '< paste -d, netperf.baseline.csv netperf.uds-fixed.csv' \
+  u 3:($10/$5) w lines ls 4 title "Patched UDS", \
+  '< paste -d, netperf.baseline.csv netperf.uds.csv' \
+  u 3:($10/$5) w lines ls 1 title "Original UDS", \
+  '< paste -d, netperf.baseline.csv netperf.tcp-nodelay.csv' \
+  u 3:($10/$5) w lines ls 3 title "TCP\\_NODELAY", \

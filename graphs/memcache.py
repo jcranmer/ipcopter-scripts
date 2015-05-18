@@ -12,4 +12,6 @@ ipcd = read_csv("memcache.ipcd.csv", xcol=0).select(threads)[5]
 ipcd.title = "Slipstream"
 baseline = read_csv("memcache.baseline.csv", xcol=0).select(threads)[5]
 baseline.title = "Baseline"
-plot([ipcd, baseline])
+unopt = read_csv("memcache.unopt.csv", xcol=0).select(threads)[5]
+unopt.title = "Slipstream (unopt)"
+plot([ipcd, baseline, unopt])

@@ -7,7 +7,7 @@ set ylabel "TPS"
 set style data histogram
 set boxwidth 0.4
 set style fill solid 0.5 border
-set yrange [0:110]
+set yrange [0:25000]
 set xtics 0,20
 """)
 

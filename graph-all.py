@@ -9,7 +9,7 @@ import re
 import subprocess
 import sys
 
-searchRe = re.compile(r'''\bread_csv\s*\(\s*(['"])(.*)\1[,\)]''')
+searchRe = re.compile(r'''\bread_csv\s*\(\s*(['"])([^'"]*)\1[,\)]''')
 
 if len(sys.argv) != 2:
     print >>sys.stderr, "Usage: %s <graphtools path>" % sys.argv[0]
@@ -30,6 +30,7 @@ for filename in os.listdir(graphs_dir):
         for match in searchRe.finditer(text):
             uses.add(match.group(2))
     for f in uses:
+        print f
         if not os.path.exists(f):
             print "%s can't find file %s, skipping" % (filename, f)
             break
