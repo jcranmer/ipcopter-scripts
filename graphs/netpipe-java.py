@@ -6,7 +6,7 @@ set xtics 1,16
 set xrange [2**4:2**24]
 set yrange [2**2:2**16]
 set xlabel "Transmit size"
-set ylabel "Throughput (MB/s)"
+set ylabel "Throughput (Mbps)"
 set grid noxtics ytics
 set key center right
 """)
