@@ -1,0 +1,9 @@
+Test,Baseline,Slipstream
+"read,\nwrite",0.15,0.16,1.07
+"open &\nclose",1.20,1.26,1.05
+"select",3.36,3.86,1.15
+"fork",86.9,167,1.92
+"fork &\nexec",290,1601,5.52
+"fork &\nsh -c",712,3301,4.64
+"TCP\nlatency",19.1,10.0,0.52
+"TCP\nconnection",32,81,2.53

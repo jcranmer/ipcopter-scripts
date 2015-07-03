@@ -1,0 +1,35 @@
+# Plot results
+
+#set term png enhanced # size 800,1024
+set term pdfcairo enhanced size 3.125in,2.34375in font ",8"
+set pointsize 0.75
+
+set datafile separator ','
+
+set grid
+
+set xlabel "Requesting threads"
+set ylabel "Ops/Sec"
+set yrange [0:300000]
+set xrange [0:16]
+
+
+set boxwidth 0.9
+set style fill solid 0.5 border
+
+probs="`tail -n+2 memcache.ipcd.csv|awk -F ',' '{print $2, "\n"}'|sort -n -u`"
+nprobs=words(probs)
+
+#set key outside above
+set key top left
+
+set linetype 1 linecolor rgb "#e41a1c"
+set linetype 2 linecolor rgb "#377eb8"
+set linetype 3 linecolor rgb "#4daf4a"
+set linetype 4 linecolor rgb "#984ea3"
+
+plot \
+    "memcache.ipcd.csv" using 1:6 with linespoints \
+    title "Slipstream" pt 8, \
+    "memcache.baseline.csv" using 1:6 with linespoints \
+    title "Baseline" pt 4

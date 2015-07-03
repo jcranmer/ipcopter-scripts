@@ -1,0 +1,440 @@
+"./lmbench",15
+"Kernel",error
+"Iface",error
+"./lmbench",137
+"./lmbench",138
+"Simple syscall",0.0538
+"Simple read",0.1416
+"Simple write",0.1534
+"Simple stat",0.3951
+"Simple fstat",0.1283
+"Simple open/close",1.2414
+"Select on 10 fd's",0.3344
+"Select on 100 fd's",1.5972
+"Select on 250 fd's",3.6439
+"Select on 500 fd's",7.0656
+"Select on 10 tcp fd's",0.3880
+"Select on 100 tcp fd's",3.8704
+"Select on 250 tcp fd's",9.6196
+"Select on 500 tcp fd's",19.2727
+"Signal handler installation",0.1287
+"Signal handler overhead",0.8841
+"Protection fault",0.2674
+"Pipe latency",10.4961
+"AF_UNIX sock stream latency",11.0447
+"Process fork+exit",175.6129
+"Process fork+execve",1664.5000
+"Process fork+/bin/sh -c",3450.5000
+"File /var/tmp/XXX write bandwidth",121881
+"lat_pagefault",/var/tmp/XXX
+"lat_pagefault",/var/tmp/XXX
+"mappings 0.524288",4.861
+"mappings 1.048576",7.625
+"mappings 2.097152",13
+"mappings 4.194304",25
+"mappings 8.388608",50
+"mappings 16.777216",97
+"mappings 33.554432",193
+"mappings 67.108864",389
+"mappings 134.217728",806
+"mappings 268.435456",1629
+"mappings 536.870912",3328
+"mappings 1073.741824",6695
+"mappings 2147.483648",13320
+"./lmbench",213
+"./lmbench",214
+"File system latency 0k",688
+"File system latency 1k",435
+"File system latency 4k",447
+"File system latency 10k",310
+"./lmbench",236
+"./lmbench",237
+"Cannot register service",RPC
+"UDP latency using localhost",17.2304
+"TCP latency using localhost",10.6338
+"localhost",RPC
+"localhost",RPC
+"connect",RPC
+"TCP/IP connection cost to localhost",105.7292
+"Socket bandwidth using localhost 0.000001",2.06
+"Socket bandwidth using localhost 0.000064",129.85
+"Socket bandwidth using localhost 0.000128",258.26
+"Socket bandwidth using localhost 0.000256",493.30
+"Socket bandwidth using localhost 0.000512",999.32
+"Socket bandwidth using localhost 0.001024",1779.59
+"Socket bandwidth using localhost 0.001437",2323.24
+"Socket bandwidth using localhost 10.485760",6200.92
+"Avg xfer",3.2KB,
+"./lmbench",340
+"./lmbench",341
+"AF_UNIX sock stream bandwidth",9307.18
+"Pipe bandwidth",2849.76
+"read bandwidth 0.000512",1022.05
+"read bandwidth 0.001024",1734.88
+"read bandwidth 0.002048",3085.07
+"read bandwidth 0.004096",4757.14
+"read bandwidth 0.008192",6224.31
+"read bandwidth 0.016384",6608.95
+"read bandwidth 0.032768",6285.09
+"read bandwidth 0.065536",6390.56
+"read bandwidth 0.131072",6296.67
+"read bandwidth 0.262144",6007.47
+"read bandwidth 0.524288",5948.16
+"read bandwidth 1.05",5915.53
+"read bandwidth 2.10",5937.79
+"read bandwidth 4.19",5909.55
+"read bandwidth 8.39",5063.29
+"read bandwidth 16.78",4462.62
+"read bandwidth 33.55",4457.28
+"read bandwidth 67.11",4500.33
+"read bandwidth 134.22",4567.56
+"read bandwidth 268.44",4644.69
+"read bandwidth 536.87",4748.84
+"read bandwidth 1073.74",4845.30
+"read bandwidth 2147.48",4908.80
+"read open2close bandwidth 0.000512",284.91
+"read open2close bandwidth 0.001024",532.29
+"read open2close bandwidth 0.002048",1032.60
+"read open2close bandwidth 0.004096",1736.03
+"read open2close bandwidth 0.008192",2941.64
+"read open2close bandwidth 0.016384",3881.34
+"read open2close bandwidth 0.032768",4861.35
+"read open2close bandwidth 0.065536",5429.79
+"read open2close bandwidth 0.131072",5667.46
+"read open2close bandwidth 0.262144",5702.92
+"read open2close bandwidth 0.524288",5780.15
+"read open2close bandwidth 1.05",5844.27
+"read open2close bandwidth 2.10",5881.58
+"read open2close bandwidth 4.19",5933.59
+"read open2close bandwidth 8.39",4972.50
+"read open2close bandwidth 16.78",4429.04
+"read open2close bandwidth 33.55",4437.24
+"read open2close bandwidth 67.11",4497.31
+"read open2close bandwidth 134.22",4580.97
+"read open2close bandwidth 268.44",4639.56
+"read open2close bandwidth 536.87",4746.87
+"read open2close bandwidth 1073.74",4840.58
+"read open2close bandwidth 2147.48",4904.39
+"Mmap read bandwidth 0.000512",20203.97
+"Mmap read bandwidth 0.001024",13129.25
+"Mmap read bandwidth 0.002048",13547.25
+"Mmap read bandwidth 0.004096",13831.32
+"Mmap read bandwidth 0.008192",13937.98
+"Mmap read bandwidth 0.016384",14026.01
+"Mmap read bandwidth 0.032768",14072.11
+"Mmap read bandwidth 0.065536",12943.33
+"Mmap read bandwidth 0.131072",12931.61
+"Mmap read bandwidth 0.262144",12389.65
+"Mmap read bandwidth 0.524288",11801.00
+"Mmap read bandwidth 1.05",11771.09
+"Mmap read bandwidth 2.10",11758.31
+"Mmap read bandwidth 4.19",11951.85
+"Mmap read bandwidth 8.39",10215.77
+"Mmap read bandwidth 16.78",8989.40
+"Mmap read bandwidth 33.55",8928.80
+"Mmap read bandwidth 67.11",8975.37
+"Mmap read bandwidth 134.22",9002.46
+"Mmap read bandwidth 268.44",9009.72
+"Mmap read bandwidth 536.87",9029.57
+"Mmap read bandwidth 1073.74",9028.12
+"Mmap read bandwidth 2147.48",9030.25
+"Mmap read open2close bandwidth 0.000512",135.75
+"Mmap read open2close bandwidth 0.001024",265.75
+"Mmap read open2close bandwidth 0.002048",519.87
+"Mmap read open2close bandwidth 0.004096",1001.26
+"Mmap read open2close bandwidth 0.008192",1619.51
+"Mmap read open2close bandwidth 0.016384",2308.28
+"Mmap read open2close bandwidth 0.032768",2810.56
+"Mmap read open2close bandwidth 0.065536",3416.34
+"Mmap read open2close bandwidth 0.131072",3715.46
+"Mmap read open2close bandwidth 0.262144",3790.26
+"Mmap read open2close bandwidth 0.524288",3850.92
+"Mmap read open2close bandwidth 1.05",4051.54
+"Mmap read open2close bandwidth 2.10",4014.74
+"Mmap read open2close bandwidth 4.19",4100.00
+"Mmap read open2close bandwidth 8.39",3702.49
+"Mmap read open2close bandwidth 16.78",3331.46
+"Mmap read open2close bandwidth 33.55",3198.10
+"Mmap read open2close bandwidth 67.11",3199.01
+"Mmap read open2close bandwidth 134.22",3247.54
+"Mmap read open2close bandwidth 268.44",3411.78
+"Mmap read open2close bandwidth 536.87",3544.33
+"Mmap read open2close bandwidth 1073.74",3641.74
+"Mmap read open2close bandwidth 2147.48",3801.66
+"libc bcopy unaligned 0.000512",34422.85
+"libc bcopy unaligned 0.001024",39123.71
+"libc bcopy unaligned 0.002048",41702.25
+"libc bcopy unaligned 0.004096",43095.61
+"libc bcopy unaligned 0.008192",43865.98
+"libc bcopy unaligned 0.016384",32654.76
+"libc bcopy unaligned 0.032768",16973.62
+"libc bcopy unaligned 0.065536",16948.56
+"libc bcopy unaligned 0.131072",17422.56
+"libc bcopy unaligned 0.262144",16186.53
+"libc bcopy unaligned 0.524288",14646.53
+"libc bcopy unaligned 1.05",11252.83
+"libc bcopy unaligned 2.10",10391.47
+"libc bcopy unaligned 4.19",10163.27
+"libc bcopy unaligned 8.39",9011.93
+"libc bcopy unaligned 16.78",7424.64
+"libc bcopy unaligned 33.55",7435.89
+"libc bcopy unaligned 67.11",7441.66
+"libc bcopy unaligned 134.22",7462.34
+"libc bcopy unaligned 268.44",7468.16
+"libc bcopy unaligned 536.87",7465.87
+"libc bcopy unaligned 1073.74",7466.65
+"libc bcopy aligned 0.000512",34600.79
+"libc bcopy aligned 0.001024",39408.09
+"libc bcopy aligned 0.002048",41715.87
+"libc bcopy aligned 0.004096",43208.93
+"libc bcopy aligned 0.008192",43780.98
+"libc bcopy aligned 0.016384",34508.98
+"libc bcopy aligned 0.032768",16887.66
+"libc bcopy aligned 0.065536",16920.20
+"libc bcopy aligned 0.131072",16332.48
+"libc bcopy aligned 0.262144",15244.97
+"libc bcopy aligned 0.524288",14574.28
+"libc bcopy aligned 1.05",11405.83
+"libc bcopy aligned 2.10",10512.04
+"libc bcopy aligned 4.19",10228.23
+"libc bcopy aligned 8.39",8949.44
+"libc bcopy aligned 16.78",7412.61
+"libc bcopy aligned 33.55",7435.89
+"libc bcopy aligned 67.11",7459.86
+"libc bcopy aligned 134.22",7465.25
+"libc bcopy aligned 268.44",7471.48
+"libc bcopy aligned 536.87",7472.94
+"libc bcopy aligned 1073.74",7473.93
+"Memory bzero bandwidth 0.000512",38617.55
+"Memory bzero bandwidth 0.001024",41420.02
+"Memory bzero bandwidth 0.002048",42964.12
+"Memory bzero bandwidth 0.004096",43780.98
+"Memory bzero bandwidth 0.008192",42799.58
+"Memory bzero bandwidth 0.016384",43699.61
+"Memory bzero bandwidth 0.032768",39889.15
+"Memory bzero bandwidth 0.065536",27032.98
+"Memory bzero bandwidth 0.131072",26429.27
+"Memory bzero bandwidth 0.262144",25484.89
+"Memory bzero bandwidth 0.524288",16802.28
+"Memory bzero bandwidth 1.05",16298.13
+"Memory bzero bandwidth 2.10",16298.13
+"Memory bzero bandwidth 4.19",16231.26
+"Memory bzero bandwidth 8.39",12935.40
+"Memory bzero bandwidth 16.78",6638.31
+"Memory bzero bandwidth 33.55",7212.90
+"Memory bzero bandwidth 67.11",7175.12
+"Memory bzero bandwidth 134.22",7140.76
+"Memory bzero bandwidth 268.44",7112.00
+"Memory bzero bandwidth 536.87",7094.71
+"Memory bzero bandwidth 1073.74",7114.41
+"Memory bzero bandwidth 2147.48",7000.74
+"unrolled bcopy unaligned 0.000512",10427.94
+"unrolled bcopy unaligned 0.001024",10846.41
+"unrolled bcopy unaligned 0.002048",10967.92
+"unrolled bcopy unaligned 0.004096",11078.31
+"unrolled bcopy unaligned 0.008192",11110.90
+"unrolled bcopy unaligned 0.016384",10785.61
+"unrolled bcopy unaligned 0.032768",8181.55
+"unrolled bcopy unaligned 0.065536",8187.54
+"unrolled bcopy unaligned 0.131072",7662.52
+"unrolled bcopy unaligned 0.262144",7272.54
+"unrolled bcopy unaligned 0.524288",7228.93
+"unrolled bcopy unaligned 1.05",7218.46
+"unrolled bcopy unaligned 2.10",7078.68
+"unrolled bcopy unaligned 4.19",6109.69
+"unrolled bcopy unaligned 8.39",4045.95
+"unrolled bcopy unaligned 16.78",4026.69
+"unrolled bcopy unaligned 33.55",4069.67
+"unrolled bcopy unaligned 67.11",4066.46
+"unrolled bcopy unaligned 134.22",4033.47
+"unrolled bcopy unaligned 268.44",4039.24
+"unrolled bcopy unaligned 536.87",4069.12
+"unrolled bcopy unaligned 1073.74",4033.70
+"unrolled partial bcopy unaligned 0.000512",38608.07
+"unrolled partial bcopy unaligned 0.001024",41410.21
+"unrolled partial bcopy unaligned 0.002048",41278.40
+"unrolled partial bcopy unaligned 0.004096",43780.98
+"unrolled partial bcopy unaligned 0.008192",44211.81
+"unrolled partial bcopy unaligned 0.016384",38860.21
+"unrolled partial bcopy unaligned 0.032768",17143.36
+"unrolled partial bcopy unaligned 0.065536",17029.88
+"unrolled partial bcopy unaligned 0.131072",16297.75
+"unrolled partial bcopy unaligned 0.262144",11511.79
+"unrolled partial bcopy unaligned 0.524288",11312.83
+"unrolled partial bcopy unaligned 1.05",11315.57
+"unrolled partial bcopy unaligned 2.10",11201.88
+"unrolled partial bcopy unaligned 4.19",8050.49
+"unrolled partial bcopy unaligned 8.39",4759.94
+"unrolled partial bcopy unaligned 16.78",4864.37
+"unrolled partial bcopy unaligned 33.55",4751.41
+"unrolled partial bcopy unaligned 67.11",4751.74
+"unrolled partial bcopy unaligned 134.22",4764.39
+"unrolled partial bcopy unaligned 268.44",4730.22
+"unrolled partial bcopy unaligned 536.87",4725.31
+"unrolled partial bcopy unaligned 1073.74",4727.87
+"Memory read bandwidth 0.000512",7023.44
+"Memory read bandwidth 0.001024",7057.32
+"Memory read bandwidth 0.002048",7079.71
+"Memory read bandwidth 0.004096",7081.47
+"Memory read bandwidth 0.008192",7077.61
+"Memory read bandwidth 0.016384",7075.25
+"Memory read bandwidth 0.032768",7069.24
+"Memory read bandwidth 0.065536",7057.35
+"Memory read bandwidth 0.131072",7061.20
+"Memory read bandwidth 0.262144",6979.74
+"Memory read bandwidth 0.524288",6821.24
+"Memory read bandwidth 1.05",6817.54
+"Memory read bandwidth 2.10",6816.31
+"Memory read bandwidth 4.19",6834.82
+"Memory read bandwidth 8.39",6506.83
+"Memory read bandwidth 16.78",5981.18
+"Memory read bandwidth 33.55",5971.60
+"Memory read bandwidth 67.11",5980.12
+"Memory read bandwidth 134.22",5979.32
+"Memory read bandwidth 268.44",5979.98
+"Memory read bandwidth 536.87",5982.18
+"Memory read bandwidth 1073.74",5980.28
+"Memory read bandwidth 2147.48",5981.55
+"Memory partial read bandwidth 0.000512",39677.17
+"Memory partial read bandwidth 0.001024",42017.67
+"Memory partial read bandwidth 0.002048",42956.32
+"Memory partial read bandwidth 0.004096",43469.62
+"Memory partial read bandwidth 0.008192",43757.49
+"Memory partial read bandwidth 0.016384",43977.48
+"Memory partial read bandwidth 0.032768",43752.15
+"Memory partial read bandwidth 0.065536",29678.70
+"Memory partial read bandwidth 0.131072",29640.71
+"Memory partial read bandwidth 0.262144",25889.57
+"Memory partial read bandwidth 0.524288",22304.07
+"Memory partial read bandwidth 1.05",22193.09
+"Memory partial read bandwidth 2.10",22202.04
+"Memory partial read bandwidth 4.19",22349.75
+"Memory partial read bandwidth 8.39",18210.91
+"Memory partial read bandwidth 16.78",12022.37
+"Memory partial read bandwidth 33.55",11924.11
+"Memory partial read bandwidth 67.11",11960.23
+"Memory partial read bandwidth 134.22",11977.31
+"Memory partial read bandwidth 268.44",11991.76
+"Memory partial read bandwidth 536.87",11974.64
+"Memory partial read bandwidth 1073.74",11968.10
+"Memory partial read bandwidth 2147.48",11973.97
+"Memory write bandwidth 0.000512",10661.01
+"Memory write bandwidth 0.001024",10904.88
+"Memory write bandwidth 0.002048",11031.96
+"Memory write bandwidth 0.004096",11095.31
+"Memory write bandwidth 0.008192",11126.23
+"Memory write bandwidth 0.016384",11143.86
+"Memory write bandwidth 0.032768",11140.76
+"Memory write bandwidth 0.065536",10491.95
+"Memory write bandwidth 0.131072",10465.46
+"Memory write bandwidth 0.262144",10319.50
+"Memory write bandwidth 0.524288",9927.91
+"Memory write bandwidth 1.05",9931.12
+"Memory write bandwidth 2.10",9921.02
+"Memory write bandwidth 4.19",9922.83
+"Memory write bandwidth 8.39",9395.49
+"Memory write bandwidth 16.78",7185.10
+"Memory write bandwidth 33.55",7169.75
+"Memory write bandwidth 67.11",6958.61
+"Memory write bandwidth 134.22",7193.58
+"Memory write bandwidth 268.44",7064.83
+"Memory write bandwidth 536.87",7072.93
+"Memory write bandwidth 1073.74",7038.44
+"Memory write bandwidth 2147.48",6931.95
+"Memory partial write bandwidth 0.000512",39684.37
+"Memory partial write bandwidth 0.001024",42017.67
+"Memory partial write bandwidth 0.002048",43299.19
+"Memory partial write bandwidth 0.004096",43947.08
+"Memory partial write bandwidth 0.008192",44293.95
+"Memory partial write bandwidth 0.016384",44475.52
+"Memory partial write bandwidth 0.032768",42426.00
+"Memory partial write bandwidth 0.065536",27143.50
+"Memory partial write bandwidth 0.131072",26767.04
+"Memory partial write bandwidth 0.262144",26006.92
+"Memory partial write bandwidth 0.524288",16617.39
+"Memory partial write bandwidth 1.05",15947.92
+"Memory partial write bandwidth 2.10",15950.81
+"Memory partial write bandwidth 4.19",15876.58
+"Memory partial write bandwidth 8.39",12841.34
+"Memory partial write bandwidth 16.78",7464.28
+"Memory partial write bandwidth 33.55",7030.79
+"Memory partial write bandwidth 67.11",7111.25
+"Memory partial write bandwidth 134.22",7180.87
+"Memory partial write bandwidth 268.44",7256.58
+"Memory partial write bandwidth 536.87",7126.07
+"Memory partial write bandwidth 1073.74",7074.70
+"Memory partial write bandwidth 2147.48",6981.14
+"Memory partial read/write bandwidth 0.000512",22319.57
+"Memory partial read/write bandwidth 0.001024",22310.17
+"Memory partial read/write bandwidth 0.002048",22321.32
+"Memory partial read/write bandwidth 0.004096",22320.04
+"Memory partial read/write bandwidth 0.008192",22322.72
+"Memory partial read/write bandwidth 0.016384",22320.15
+"Memory partial read/write bandwidth 0.032768",22322.90
+"Memory partial read/write bandwidth 0.065536",22312.42
+"Memory partial read/write bandwidth 0.131072",22253.03
+"Memory partial read/write bandwidth 0.262144",20377.66
+"Memory partial read/write bandwidth 0.524288",15322.27
+"Memory partial read/write bandwidth 1.05",15066.84
+"Memory partial read/write bandwidth 2.10",15046.83
+"Memory partial read/write bandwidth 4.19",15068.45
+"Memory partial read/write bandwidth 8.39",11667.05
+"Memory partial read/write bandwidth 16.78",7067.07
+"Memory partial read/write bandwidth 33.55",6681.49
+"Memory partial read/write bandwidth 67.11",6752.07
+"Memory partial read/write bandwidth 134.22",6810.66
+"Memory partial read/write bandwidth 268.44",6779.36
+"Memory partial read/write bandwidth 536.87",6860.09
+"Memory partial read/write bandwidth 1073.74",6823.34
+"Memory partial read/write bandwidth 2147.48",6740.57
+"./lmbench",418
+"./lmbench",419
+"size=0k ovr=0.59 2",4.54
+"size=0k ovr=0.59 4",4.20
+"size=0k ovr=0.59 8",3.96
+"size=0k ovr=0.59 16",4.51
+"size=0k ovr=0.59 24",4.08
+"size=0k ovr=0.59 32",4.65
+"size=0k ovr=0.59 64",4.87
+"size=0k ovr=0.59 96",4.00
+"size=4k ovr=0.99 2",5.55
+"size=4k ovr=0.99 4",4.32
+"size=4k ovr=0.99 8",3.27
+"size=4k ovr=0.99 16",4.12
+"size=4k ovr=0.99 24",3.51
+"size=4k ovr=0.99 32",3.58
+"size=4k ovr=0.99 64",4.17
+"size=4k ovr=0.99 96",3.52
+"size=8k ovr=1.28 2",4.37
+"size=8k ovr=1.28 4",5.77
+"size=8k ovr=1.28 8",4.22
+"size=8k ovr=1.28 16",3.63
+"size=8k ovr=1.28 24",3.44
+"size=8k ovr=1.28 32",4.70
+"size=8k ovr=1.28 64",5.34
+"size=8k ovr=1.28 96",5.83
+"size=16k ovr=1.87 2",5.51
+"size=16k ovr=1.87 4",4.50
+"size=16k ovr=1.87 8",4.72
+"size=16k ovr=1.87 16",5.86
+"size=16k ovr=1.87 24",4.05
+"size=16k ovr=1.87 32",4.34
+"size=16k ovr=1.87 64",4.84
+"size=16k ovr=1.87 96",6.13
+"size=32k ovr=3.16 2",3.22
+"size=32k ovr=3.16 4",3.61
+"size=32k ovr=3.16 8",4.20
+"size=32k ovr=3.16 16",3.48
+"size=32k ovr=3.16 24",5.03
+"size=32k ovr=3.16 32",4.28
+"size=32k ovr=3.16 64",5.28
+"size=32k ovr=3.16 96",5.53
+"size=64k ovr=5.75 2",4.13
+"size=64k ovr=5.75 4",3.89
+"size=64k ovr=5.75 8",4.77
+"size=64k ovr=5.75 16",5.09
+"size=64k ovr=5.75 24",5.78
+"size=64k ovr=5.75 32",4.59
+"size=64k ovr=5.75 64",4.78
+"size=64k ovr=5.75 96",6.09
+"./lmbench",479
